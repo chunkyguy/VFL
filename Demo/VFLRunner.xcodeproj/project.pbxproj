@@ -16,11 +16,7 @@
 		E693558229602A88004F7FD8 /* UIView+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558129602A88004F7FD8 /* UIView+Misc.swift */; };
 		E693558829603946004F7FD8 /* VLFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558729603946004F7FD8 /* VLFViewController.swift */; };
 		E693558A29603D79004F7FD8 /* VFLExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558929603D79004F7FD8 /* VFLExample.swift */; };
-		E693558C2960478C004F7FD8 /* VFLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558B2960478C004F7FD8 /* VFLView.swift */; };
-		E693559329604BFA004F7FD8 /* UIView+VFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558F29604BFA004F7FD8 /* UIView+VFL.swift */; };
-		E693559429604BFA004F7FD8 /* VFLContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559029604BFA004F7FD8 /* VFLContext.swift */; };
-		E693559529604BFA004F7FD8 /* UIEdgeInsets+VFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559129604BFA004F7FD8 /* UIEdgeInsets+VFL.swift */; };
-		E693559629604BFA004F7FD8 /* VFLConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559229604BFA004F7FD8 /* VFLConstraints.swift */; };
+		E693559829605C9F004F7FD8 /* VFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559729605C9F004F7FD8 /* VFL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +31,8 @@
 		E693558129602A88004F7FD8 /* UIView+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Misc.swift"; sourceTree = "<group>"; };
 		E693558729603946004F7FD8 /* VLFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLFViewController.swift; sourceTree = "<group>"; };
 		E693558929603D79004F7FD8 /* VFLExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExample.swift; sourceTree = "<group>"; };
-		E693558B2960478C004F7FD8 /* VFLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLView.swift; sourceTree = "<group>"; };
-		E693558F29604BFA004F7FD8 /* UIView+VFL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+VFL.swift"; sourceTree = "<group>"; };
-		E693559029604BFA004F7FD8 /* VFLContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VFLContext.swift; sourceTree = "<group>"; };
-		E693559129604BFA004F7FD8 /* UIEdgeInsets+VFL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+VFL.swift"; sourceTree = "<group>"; };
-		E693559229604BFA004F7FD8 /* VFLConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VFLConstraints.swift; sourceTree = "<group>"; };
+		E693559729605C9F004F7FD8 /* VFL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VFL.swift; path = ../VFL.swift; sourceTree = "<group>"; };
+		E693559929605D38004F7FD8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +49,8 @@
 		E693555D2960241F004F7FD8 = {
 			isa = PBXGroup;
 			children = (
-				E693558E29604BFA004F7FD8 /* VFL */,
+				E693559929605D38004F7FD8 /* README.md */,
+				E693559729605C9F004F7FD8 /* VFL.swift */,
 				E69355682960241F004F7FD8 /* VFLRunner */,
 				E69355672960241F004F7FD8 /* Products */,
 			);
@@ -76,28 +70,15 @@
 				E69355692960241F004F7FD8 /* AppDelegate.swift */,
 				E693556B2960241F004F7FD8 /* SceneDelegate.swift */,
 				E693556D2960241F004F7FD8 /* ViewController.swift */,
-				E693558929603D79004F7FD8 /* VFLExample.swift */,
 				E693558729603946004F7FD8 /* VLFViewController.swift */,
-				E693558B2960478C004F7FD8 /* VFLView.swift */,
 				E693558129602A88004F7FD8 /* UIView+Misc.swift */,
+				E693558929603D79004F7FD8 /* VFLExample.swift */,
 				E693556F2960241F004F7FD8 /* Main.storyboard */,
 				E693557229602420004F7FD8 /* Assets.xcassets */,
 				E693557429602420004F7FD8 /* LaunchScreen.storyboard */,
 				E693557729602420004F7FD8 /* Info.plist */,
 			);
 			path = VFLRunner;
-			sourceTree = "<group>";
-		};
-		E693558E29604BFA004F7FD8 /* VFL */ = {
-			isa = PBXGroup;
-			children = (
-				E693558F29604BFA004F7FD8 /* UIView+VFL.swift */,
-				E693559029604BFA004F7FD8 /* VFLContext.swift */,
-				E693559129604BFA004F7FD8 /* UIEdgeInsets+VFL.swift */,
-				E693559229604BFA004F7FD8 /* VFLConstraints.swift */,
-			);
-			name = VFL;
-			path = ../VFL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,17 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E693559829605C9F004F7FD8 /* VFL.swift in Sources */,
 				E693556E2960241F004F7FD8 /* ViewController.swift in Sources */,
 				E693558229602A88004F7FD8 /* UIView+Misc.swift in Sources */,
-				E693559629604BFA004F7FD8 /* VFLConstraints.swift in Sources */,
 				E693556A2960241F004F7FD8 /* AppDelegate.swift in Sources */,
-				E693559529604BFA004F7FD8 /* UIEdgeInsets+VFL.swift in Sources */,
 				E693556C2960241F004F7FD8 /* SceneDelegate.swift in Sources */,
 				E693558A29603D79004F7FD8 /* VFLExample.swift in Sources */,
-				E693559429604BFA004F7FD8 /* VFLContext.swift in Sources */,
-				E693558C2960478C004F7FD8 /* VFLView.swift in Sources */,
 				E693558829603946004F7FD8 /* VLFViewController.swift in Sources */,
-				E693559329604BFA004F7FD8 /* UIView+VFL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

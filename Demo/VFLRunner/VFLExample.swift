@@ -10,7 +10,7 @@ import Foundation
 struct VFLExample {
     let name: String
     let viewCount: Int
-    let constraints: VFLConstraints
+    let description: VFLDescription
 }
 
 struct VFLExamples {
@@ -19,7 +19,7 @@ struct VFLExamples {
             VFLExample(
                 name: "Screen Full Layout",
                 viewCount: 1,
-                constraints: VFLConstraints(descriptions: [
+                description: VFLDescription(formats: [
                     "V:|[vw]|", "H:|[vw]|"
                 ])
             ),
@@ -27,7 +27,7 @@ struct VFLExamples {
             VFLExample(
                 name: "Horizontal Equal Split",
                 viewCount: 2,
-                constraints: VFLConstraints(descriptions: [
+                description: VFLDescription(formats: [
                     "V:|[vw0]|",
                     "V:|[vw1]|",
                     "H:|[vw0(==vw1)][vw1]|"
@@ -37,7 +37,7 @@ struct VFLExamples {
             VFLExample(
                 name: "Vertical Equal Split",
                 viewCount: 2,
-                constraints: VFLConstraints(descriptions: [
+                description: VFLDescription(formats: [
                     "V:|[vw0(==vw1)][vw1]|",
                     "H:|[vw0]|",
                     "H:|[vw1]|"
@@ -47,13 +47,11 @@ struct VFLExamples {
             VFLExample(
                 name: "Fixed Size View",
                 viewCount: 1,
-                constraints: VFLConstraints(
-                    descriptions: [
+                description: VFLDescription(formats: [
                     "V:|-[vw(100)]",
                     "H:|-[vw(100)]"
                 ])
             )
-
         ]
     }
 }

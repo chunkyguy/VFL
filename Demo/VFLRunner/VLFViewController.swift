@@ -7,6 +7,20 @@
 
 import UIKit
 
+extension VFLViewController {
+    class ContentView: UIView {
+        init(example: VFLExample, frame: CGRect = .zero) {
+            super.init(frame: frame)
+            let vws = (0..<example.viewCount).map { _ in UIView.create() }
+            addSubviews(vws, description: example.description)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+}
+
 class VFLViewController: UIViewController {
     let example: VFLExample
     private var ctx = VFLContext()
@@ -23,7 +37,7 @@ class VFLViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let vw = VFLView(example: example)
+        let vw = ContentView(example: example)
         ctx = view.addSubviews([vw])
         view.backgroundColor = .white
     }
@@ -33,7 +47,7 @@ class VFLViewController: UIViewController {
         ctx = view.applyConstraints(
             context: ctx,
             metrics: view.safeAreaInsets.metrics,
-            descriptions: [
+            formats: [
                 "V:|-(top)-[vw]-(bottom)-|",
                 "H:|-(left)-[vw]-(right)-|"
             ]

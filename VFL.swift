@@ -1,11 +1,47 @@
 //
-//  UIView+VFL.swift
+//  VFL.swift
 //  VFLRunner
 //
 //  Created by Sidharth Juyal on 31/12/2022.
 //
 
 import UIKit
+
+struct VFLContext {
+    let views: [String: UIView]
+    let constraints: [NSLayoutConstraint]
+
+    private init(views: [String : UIView], constraints: [NSLayoutConstraint]) {
+        self.views = views
+        self.constraints = constraints
+    }
+    
+    init(_ views: [String: UIView] = [:]) {
+        self.init(views: views, constraints: [])
+    }
+    
+    func applying(_ constraints: [NSLayoutConstraint]) -> VFLContext {
+        NSLayoutConstraint.deactivate(self.constraints)
+        NSLayoutConstraint.activate(constraints)
+        return VFLContext(views: self.views, constraints: constraints)
+    }
+}
+
+struct VFLDescription {
+    let options: NSLayoutConstraint.FormatOptions
+    let metrics: [String: CGFloat]?
+    let formats: [String]
+    
+    init(
+        options: NSLayoutConstraint.FormatOptions = [],
+        metrics: [String : CGFloat]? = nil,
+        formats: [String]
+    ) {
+        self.options = options
+        self.metrics = metrics
+        self.formats = formats
+    }
+}
 
 extension UIView {
     
@@ -39,14 +75,14 @@ extension UIView {
         context: VFLContext,
         options: NSLayoutConstraint.FormatOptions = [],
         metrics: [String: CGFloat]? = nil,
-        descriptions: [String]
+        formats: [String]
     ) -> VFLContext {
         return applyConstraints(
             context: context,
-            constraints: VFLConstraints(
+            constraints: VFLDescription(
                 options: options,
                 metrics: metrics,
-                descriptions: descriptions
+                formats: formats
             )
         )
     }
@@ -55,9 +91,9 @@ extension UIView {
     // Previous contraints in the context are removed and new ones added
     func applyConstraints(
         context: VFLContext,
-        constraints: VFLConstraints
+        constraints: VFLDescription
     ) -> VFLContext {
-        let constraints = constraints.descriptions.flatMap { desc in
+        let constraints = constraints.formats.flatMap { desc in
             NSLayoutConstraint.constraints(
                 withVisualFormat: desc,
                 options: constraints.options,
@@ -74,24 +110,37 @@ extension UIView {
         _ subviews: [UIView],
         options: NSLayoutConstraint.FormatOptions = [],
         metrics: [String: CGFloat]? = nil,
-        descriptions: [String]
+        formats: [String]
     ) -> VFLContext {
-        return addSubviews(subviews, constraints: VFLConstraints(
-            options: options,
-            metrics: metrics,
-            descriptions: descriptions
-        ))
+        return addSubviews(
+            subviews,
+            description: VFLDescription(
+                options: options,
+                metrics: metrics,
+                formats: formats
+            )
+        )
     }
     
     // add subviews and apply contraints
     @discardableResult
     func addSubviews(
         _ subviews: [UIView],
-        constraints: VFLConstraints
-    ) -> VFLContext {
+        description: VFLDescription) -> VFLContext {
         return applyConstraints(
             context: addSubviews(subviews),
-            constraints: constraints
+            constraints: description
         )
+    }
+}
+
+extension UIEdgeInsets {
+    var metrics: [String: CGFloat] {
+        return [
+            "top": self.top,
+            "bottom": self.bottom,
+            "left": self.left,
+            "right": self.right
+        ]
     }
 }
