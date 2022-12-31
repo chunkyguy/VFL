@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  VFLExamplesViewController.swift
 //  VFLRunner
 //
 //  Created by Sidharth Juyal on 31/12/2022.
@@ -7,19 +7,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class VFLExamplesViewController: UIViewController {
+
+    static func create() -> VFLExamplesViewController {
+        return VFLExamplesViewController(nibName: nil, bundle: nil)
+    }
+    
     static let cellId = "cell-id"
     
     private var ctx = VFLContext()
     
-    private let demoList: [(name: String, vwCtrl: () -> UIViewController )] = [
-        (name: "Basic Examples", vwCtrl: { VFLExamplesViewController.create() }),
-        (name: "Complex Example", vwCtrl: { VFLComplexViewController.create() })
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "VFL Demo"
+        self.title = "Basic Examples"
+        view.backgroundColor = .white
 
         let tableVw = UITableView(frame: .zero, style: .plain)
         ctx = view.addSubviews([tableVw])
@@ -41,22 +42,22 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension VFLExamplesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return demoList.count
+        return VFLExamples.all.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.cellId, for: indexPath)
-        cell.textLabel?.text = demoList[indexPath.row].name
+        cell.textLabel?.text = VFLExamples.all[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
         return cell
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension VFLExamplesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vwCtrl = demoList[indexPath.row].vwCtrl()
+        let vwCtrl = VFLExampleViewController(example: VFLExamples.all[indexPath.row])
         navigationController?.pushViewController(vwCtrl, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

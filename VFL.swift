@@ -46,6 +46,17 @@ struct VFLDescription {
 extension UIView {
     
     /// Add subviews to the receiver
+    func addSubviews(_ subviews: [UIView], names: [String]) -> VFLContext {
+        var views: [String: UIView] = [:]
+        for (idx, subview) in subviews.enumerated() {
+            addSubview(subview)
+            subview.translatesAutoresizingMaskIntoConstraints = false
+            views[names[idx]] = subview
+        }
+        return VFLContext(views)
+    }
+    
+    /// Add subviews to the receiver
     /// - Parameter subviews: Subviews to be added
     /// - Returns: Context containing the views dictionary
     func addSubviews(_ subviews: [UIView], prefix: String = "vw") -> VFLContext {
@@ -59,13 +70,8 @@ extension UIView {
             vw.translatesAutoresizingMaskIntoConstraints = false
             return VFLContext([prefix: vw])
         }
-        
-        let views = subviews.enumerated().map { (idx, vw) in
-            addSubview(vw)
-            vw.translatesAutoresizingMaskIntoConstraints = false
-            return ("\(prefix)\(idx)", vw)
-        }
-        return VFLContext(Dictionary(uniqueKeysWithValues: views))
+        let names = (0..<subviews.count).map { "\(prefix)\($0)" }
+        return addSubviews(subviews, names: names)
     }
     
     

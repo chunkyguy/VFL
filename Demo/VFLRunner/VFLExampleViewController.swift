@@ -1,5 +1,5 @@
 //
-//  VLFViewController.swift
+//  VFLExampleViewController.swift
 //  VFLRunner
 //
 //  Created by Sidharth Juyal on 31/12/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension VFLViewController {
+extension VFLExampleViewController {
     class ContentView: UIView {
         init(example: VFLExample, frame: CGRect = .zero) {
             super.init(frame: frame)
@@ -21,7 +21,7 @@ extension VFLViewController {
     }
 }
 
-class VFLViewController: UIViewController {
+class VFLExampleViewController: UIViewController {
     let example: VFLExample
     private var ctx = VFLContext()
     
