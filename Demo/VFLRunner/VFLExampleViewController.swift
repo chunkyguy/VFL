@@ -8,11 +8,14 @@
 import UIKit
 
 extension VFLExampleViewController {
+    
     class ContentView: UIView {
         init(example: VFLExample, frame: CGRect = .zero) {
             super.init(frame: frame)
             let vws = (0..<example.viewCount).map { _ in UIView.create() }
-            addSubviews(vws, description: example.description)
+            VFL(self)
+                .addSubviews(vws)
+                .appendConstraints(formats: example.formats)
         }
         
         required init?(coder: NSCoder) {
@@ -23,7 +26,7 @@ extension VFLExampleViewController {
 
 class VFLExampleViewController: UIViewController {
     let example: VFLExample
-    private var ctx = VFLContext()
+    private var ctx = VFL()
     
     init(example: VFLExample) {
         self.example = example
@@ -38,14 +41,13 @@ class VFLExampleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let vw = ContentView(example: example)
-        ctx = view.addSubviews([vw])
+        ctx.setParent(view).add(subviews: [vw], names: ["vw"])
         view.backgroundColor = .white
     }
     
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
-        ctx = view.applyConstraints(
-            context: ctx,
+        ctx.replaceConstraints(
             metrics: view.safeAreaInsets.metrics,
             formats: [
                 "V:|-(top)-[vw]-(bottom)-|",

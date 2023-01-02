@@ -9,7 +9,7 @@ import UIKit
 
 extension VFLComplexViewController {
     class ContentView: UIView {
-        private var ctx = VFLContext()
+        private var ctx = VFL()
         
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -17,8 +17,8 @@ extension VFLComplexViewController {
             let leftVw = UIImageView(image: UIImage(named: "square"))
             let rightVw = UIImageView(image: UIImage(named: "square"))
             let borderVw = UIView.create(color: .green)
-            ctx = addSubviews(
-                [borderVw, topVw, leftVw, rightVw],
+            ctx.setParent(self).add(
+                subviews: [borderVw, topVw, leftVw, rightVw],
                 names: ["bVw", "tVw", "lVw", "rVw"]
             )
         }
@@ -33,13 +33,11 @@ extension VFLComplexViewController {
         }
         
         private func layoutSubviewPortrait() {
-            let metrics: [String: CGFloat] = [
-                "w": bounds.width,
-                "hw": bounds.width / 2,
-            ]
-            ctx = applyConstraints(
-                context: ctx,
-                metrics: metrics,
+            ctx.replaceConstraints(
+                metrics: [
+                    "w": bounds.width,
+                    "hw": bounds.width / 2
+                ],
                 formats: [
                     "V:|[tVw(w)][bVw(40)]",
                     "H:|[tVw]|",
@@ -52,13 +50,11 @@ extension VFLComplexViewController {
         }
         
         private func layoutSubviewLandscape() {
-            let metrics: [String: CGFloat] = [
-                "w": bounds.height,
-                "hw": bounds.height / 2.0,
-            ]
-            ctx = applyConstraints(
-                context: ctx,
-                metrics: metrics,
+            ctx.replaceConstraints(
+                metrics: [
+                    "w": bounds.height,
+                    "hw": bounds.height / 2.0,
+                ],
                 formats: [
                     "V:|[tVw]|",
                     "H:|[tVw(w)][bVw(40)]",
@@ -79,20 +75,19 @@ class VFLComplexViewController: UIViewController {
         return VFLComplexViewController(nibName: nil, bundle: nil)
     }
     
-    private var ctx = VFLContext()
+    private var ctx = VFL()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Complex Example"
         let vw = ContentView(frame: .zero)
-        ctx = view.addSubviews([vw])
+        ctx.setParent(view).add(subviews: [vw], names: ["vw"])
         view.backgroundColor = .white
     }
     
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
-        ctx = view.applyConstraints(
-            context: ctx,
+        ctx.replaceConstraints(
             metrics: view.safeAreaInsets.metrics,
             formats: [
                 "V:|-(top)-[vw]-(bottom)-|",

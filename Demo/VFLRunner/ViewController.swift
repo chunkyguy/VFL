@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     static let cellId = "cell-id"
     
-    private var ctx = VFLContext()
+    private let vfl = VFL()
     
     private let demoList: [(name: String, vwCtrl: () -> UIViewController )] = [
         (name: "Basic Examples", vwCtrl: { VFLExamplesViewController.create() }),
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         self.title = "VFL Demo"
 
         let tableVw = UITableView(frame: .zero, style: .plain)
-        ctx = view.addSubviews([tableVw])
+        vfl.setParent(view).add(subviews: [tableVw], names: ["vw"])
         tableVw.dataSource = self
         tableVw.delegate = self
         tableVw.register(UITableViewCell.self, forCellReuseIdentifier: Self.cellId)
@@ -30,8 +30,7 @@ class ViewController: UIViewController {
     
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
-        ctx = view.applyConstraints(
-            context: ctx,
+        vfl.replaceConstraints(
             metrics: view.safeAreaInsets.metrics,
             formats: [
                 "V:|-(top)-[vw]-(bottom)-|",
