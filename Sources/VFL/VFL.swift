@@ -2,26 +2,26 @@
 //  VFL.swift
 //  Created by Sidharth Juyal on 31/12/2022.
 //
-
+#if os(iOS)
 import UIKit
 
-class VFL {
+public class VFL {
     private var views: [String: UIView] = [:]
     private var constraints: [NSLayoutConstraint] = []
     private var parentVw: UIView?
     
-    init(_ view: UIView? = nil) {
+    public init(_ view: UIView? = nil) {
         parentVw = view
     }
     
     @discardableResult
-    func setParent(_ view: UIView) -> VFL {
+    public func setParent(_ view: UIView) -> VFL {
         parentVw = view
         return self
     }
     
     @discardableResult
-    func add(subviews: [UIView], names: [String]) -> VFL {
+    public func add(subviews: [UIView], names: [String]) -> VFL {
         assert(parentVw != nil)
         for (idx, subview) in subviews.enumerated() {
             parentVw?.addSubview(subview)
@@ -32,14 +32,14 @@ class VFL {
     }
     
     @discardableResult
-    func addSubviews(_ subviews: [UIView]) -> VFL {
+    public func addSubviews(_ subviews: [UIView]) -> VFL {
         let startIdx = views.count
         let names = (0..<subviews.count).map { "vw\($0 + startIdx)" }
         return add(subviews: subviews, names: names)
     }
     
     @discardableResult
-    func appendConstraints(
+    public func appendConstraints(
         options: NSLayoutConstraint.FormatOptions = [],
         metrics: [String: CGFloat]? = nil,
         formats: [String]
@@ -55,7 +55,7 @@ class VFL {
     }
     
     @discardableResult
-    func replaceConstraints(
+    public func replaceConstraints(
         options: NSLayoutConstraint.FormatOptions = [],
         metrics: [String: CGFloat]? = nil,
         formats: [String]
@@ -71,7 +71,7 @@ class VFL {
     }
     
     @discardableResult
-    func appendConstraints(
+    public func appendConstraints(
         attributes: [NSLayoutConstraint.Attribute: CGFloat],
         subviews: [UIView]
     ) -> VFL {
@@ -83,7 +83,7 @@ class VFL {
     }
     
     @discardableResult
-    func replaceConstraints(
+    public func replaceConstraints(
         attributes: [NSLayoutConstraint.Attribute: CGFloat],
         subviews: [UIView]
     ) -> VFL {
@@ -96,7 +96,7 @@ class VFL {
 }
 
 extension VFL {
-    func getConstraints(
+    public func getConstraints(
         attributes: [NSLayoutConstraint.Attribute: CGFloat],
         subviews: [UIView]
     ) -> [NSLayoutConstraint] {
@@ -144,7 +144,7 @@ extension VFL {
 }
 
 extension UIEdgeInsets {
-    var metrics: [String: CGFloat] {
+    public var metrics: [String: CGFloat] {
         return [
             "top": self.top,
             "bottom": self.bottom,
@@ -153,3 +153,4 @@ extension UIEdgeInsets {
         ]
     }
 }
+#endif

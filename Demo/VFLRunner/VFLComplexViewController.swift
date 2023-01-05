@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import VFL
 
 extension VFLComplexViewController {
     class ContentView: UIView {

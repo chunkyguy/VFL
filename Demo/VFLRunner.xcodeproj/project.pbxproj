@@ -16,9 +16,9 @@
 		E693558229602A88004F7FD8 /* UIKit+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558129602A88004F7FD8 /* UIKit+Misc.swift */; };
 		E693558829603946004F7FD8 /* VFLExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558729603946004F7FD8 /* VFLExampleViewController.swift */; };
 		E693558A29603D79004F7FD8 /* VFLExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558929603D79004F7FD8 /* VFLExample.swift */; };
-		E693559829605C9F004F7FD8 /* VFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559729605C9F004F7FD8 /* VFL.swift */; };
 		E693559B2960616C004F7FD8 /* VFLExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559A2960616C004F7FD8 /* VFLExamplesViewController.swift */; };
 		E693559D2960646B004F7FD8 /* VFLComplexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559C2960646B004F7FD8 /* VFLComplexViewController.swift */; };
+		E69355CC29676C38004F7FD8 /* VFL in Frameworks */ = {isa = PBXBuildFile; productRef = E69355CB29676C38004F7FD8 /* VFL */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +33,9 @@
 		E693558129602A88004F7FD8 /* UIKit+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Misc.swift"; sourceTree = "<group>"; };
 		E693558729603946004F7FD8 /* VFLExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExampleViewController.swift; sourceTree = "<group>"; };
 		E693558929603D79004F7FD8 /* VFLExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExample.swift; sourceTree = "<group>"; };
-		E693559729605C9F004F7FD8 /* VFL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VFL.swift; path = ../VFL.swift; sourceTree = "<group>"; };
-		E693559929605D38004F7FD8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E693559A2960616C004F7FD8 /* VFLExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExamplesViewController.swift; sourceTree = "<group>"; };
 		E693559C2960646B004F7FD8 /* VFLComplexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLComplexViewController.swift; sourceTree = "<group>"; };
+		E69355CA29676C2B004F7FD8 /* VFL */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VFL; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E69355CC29676C38004F7FD8 /* VFL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,10 +53,10 @@
 		E693555D2960241F004F7FD8 = {
 			isa = PBXGroup;
 			children = (
-				E693559929605D38004F7FD8 /* README.md */,
-				E693559729605C9F004F7FD8 /* VFL.swift */,
+				E69355C22967697C004F7FD8 /* Packages */,
 				E69355682960241F004F7FD8 /* VFLRunner */,
 				E69355672960241F004F7FD8 /* Products */,
+				E69355C529676A5B004F7FD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +87,21 @@
 			path = VFLRunner;
 			sourceTree = "<group>";
 		};
+		E69355C22967697C004F7FD8 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				E69355CA29676C2B004F7FD8 /* VFL */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		E69355C529676A5B004F7FD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,6 +118,9 @@
 			dependencies = (
 			);
 			name = VFLRunner;
+			packageProductDependencies = (
+				E69355CB29676C38004F7FD8 /* VFL */,
+			);
 			productName = VFLRunner;
 			productReference = E69355662960241F004F7FD8 /* VFLRunner.app */;
 			productType = "com.apple.product-type.application";
@@ -159,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E693559B2960616C004F7FD8 /* VFLExamplesViewController.swift in Sources */,
-				E693559829605C9F004F7FD8 /* VFL.swift in Sources */,
 				E693559D2960646B004F7FD8 /* VFLComplexViewController.swift in Sources */,
 				E693556E2960241F004F7FD8 /* ViewController.swift in Sources */,
 				E693558229602A88004F7FD8 /* UIKit+Misc.swift in Sources */,
@@ -386,6 +403,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E69355CB29676C38004F7FD8 /* VFL */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VFL;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E693555E2960241F004F7FD8 /* Project object */;
 }

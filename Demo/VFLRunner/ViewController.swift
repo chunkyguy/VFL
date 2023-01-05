@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import VFL
 
 class ViewController: UIViewController {
     static let cellId = "cell-id"
