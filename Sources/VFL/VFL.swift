@@ -21,21 +21,20 @@ public class VFL {
     }
     
     @discardableResult
-    public func add(subviews: [UIView], names: [String]) -> VFL {
+    public func add(subview: UIView, name: String) -> VFL {
         assert(parentVw != nil)
-        for (idx, subview) in subviews.enumerated() {
-            parentVw?.addSubview(subview)
-            subview.translatesAutoresizingMaskIntoConstraints = false
-            views[names[idx]] = subview
-        }
+        parentVw?.addSubview(subview)
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        views[name] = subview
         return self
     }
-    
+
     @discardableResult
-    public func addSubviews(_ subviews: [UIView]) -> VFL {
-        let startIdx = views.count
-        let names = (0..<subviews.count).map { "vw\($0 + startIdx)" }
-        return add(subviews: subviews, names: names)
+    public func add(subviews: [UIView], names: [String]) -> VFL {
+        (0..<subviews.count).forEach { idx in
+            add(subview: subviews[idx], name: names[idx])
+        }
+        return self
     }
     
     @discardableResult

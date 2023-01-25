@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         self.title = "VFL Demo"
 
         let tableVw = UITableView(frame: .zero, style: .plain)
-        vfl.setParent(view).add(subviews: [tableVw], names: ["vw"])
+        vfl.setParent(view).add(subview: tableVw, name: "vw")
         tableVw.dataSource = self
         tableVw.delegate = self
         tableVw.register(UITableViewCell.self, forCellReuseIdentifier: Self.cellId)

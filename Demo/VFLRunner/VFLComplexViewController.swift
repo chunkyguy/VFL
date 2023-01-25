@@ -82,7 +82,7 @@ class VFLComplexViewController: UIViewController {
         super.viewDidLoad()
         title = "Complex Example"
         let vw = ContentView(frame: .zero)
-        ctx.setParent(view).add(subviews: [vw], names: ["vw"])
+        ctx.setParent(view).add(subview: vw, name: "vw")
         view.backgroundColor = .white
     }
     

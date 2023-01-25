@@ -14,8 +14,9 @@ extension VFLExampleViewController {
         init(example: VFLExample, frame: CGRect = .zero) {
             super.init(frame: frame)
             let vws = (0..<example.viewCount).map { _ in UIView.create() }
+            let names = (0..<example.viewCount).map { "vw\($0)" }
             VFL(self)
-                .addSubviews(vws)
+                .add(subviews: vws, names: names)
                 .appendConstraints(formats: example.formats)
         }
         
@@ -42,7 +43,7 @@ class VFLExampleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let vw = ContentView(example: example)
-        ctx.setParent(view).add(subviews: [vw], names: ["vw"])
+        ctx.setParent(view).add(subview: vw, name: "vw")
         view.backgroundColor = .white
     }
     
