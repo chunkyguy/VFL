@@ -2,26 +2,31 @@
 //  VFL.swift
 //  Created by Sidharth Juyal on 31/12/2022.
 //
-#if os(iOS)
+#if os(macOS)
+import AppKit
+public typealias VFLView = NSView
+#else
 import UIKit
+public typealias VFLView = UIView
+#endif
 
 public class VFL {
-    private var views: [String: UIView] = [:]
+    private var views: [String: VFLView] = [:]
     private var constraints: [NSLayoutConstraint] = []
-    private var parentVw: UIView?
+    private var parentVw: VFLView?
     
-    public init(_ view: UIView? = nil) {
+    public init(_ view: VFLView? = nil) {
         parentVw = view
     }
     
     @discardableResult
-    public func setParent(_ view: UIView) -> VFL {
+    public func setParent(_ view: VFLView) -> VFL {
         parentVw = view
         return self
     }
     
     @discardableResult
-    public func add(subview: UIView, name: String) -> VFL {
+    public func add(subview: VFLView, name: String) -> VFL {
         assert(parentVw != nil)
         parentVw?.addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +35,7 @@ public class VFL {
     }
 
     @discardableResult
-    public func add(subviews: [UIView], names: [String]) -> VFL {
+    public func add(subviews: [VFLView], names: [String]) -> VFL {
         (0..<subviews.count).forEach { idx in
             add(subview: subviews[idx], name: names[idx])
         }
@@ -72,7 +77,7 @@ public class VFL {
     @discardableResult
     public func appendConstraints(
         attributes: [NSLayoutConstraint.Attribute: CGFloat],
-        subviews: [UIView]
+        subviews: [VFLView]
     ) -> VFL {
         appendConstraints(getConstraints(
             attributes: attributes,
@@ -84,7 +89,7 @@ public class VFL {
     @discardableResult
     public func replaceConstraints(
         attributes: [NSLayoutConstraint.Attribute: CGFloat],
-        subviews: [UIView]
+        subviews: [VFLView]
     ) -> VFL {
         replaceConstraints(getConstraints(
             attributes: attributes,
@@ -97,7 +102,7 @@ public class VFL {
 extension VFL {
     public func getConstraints(
         attributes: [NSLayoutConstraint.Attribute: CGFloat],
-        subviews: [UIView]
+        subviews: [VFLView]
     ) -> [NSLayoutConstraint] {
         guard let item = parentVw else { return [] }
         return attributes.flatMap { (attr, constant) in
@@ -141,15 +146,3 @@ extension VFL {
         self.constraints = constraints
     }
 }
-
-extension UIEdgeInsets {
-    public var metrics: [String: CGFloat] {
-        return [
-            "top": self.top,
-            "bottom": self.bottom,
-            "left": self.left,
-            "right": self.right
-        ]
-    }
-}
-#endif
