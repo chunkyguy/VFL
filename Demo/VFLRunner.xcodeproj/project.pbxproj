@@ -71,18 +71,11 @@
 		E69355682960241F004F7FD8 /* VFLRunner */ = {
 			isa = PBXGroup;
 			children = (
-				E693558129602A88004F7FD8 /* UIKit+Misc.swift */,
-				E693558929603D79004F7FD8 /* VFLExample.swift */,
-				E69355692960241F004F7FD8 /* AppDelegate.swift */,
-				E693556B2960241F004F7FD8 /* SceneDelegate.swift */,
-				E693556D2960241F004F7FD8 /* ViewController.swift */,
-				E693559A2960616C004F7FD8 /* VFLExamplesViewController.swift */,
-				E693558729603946004F7FD8 /* VFLExampleViewController.swift */,
-				E693559C2960646B004F7FD8 /* VFLComplexViewController.swift */,
-				E693556F2960241F004F7FD8 /* Main.storyboard */,
+				E6C911FB2A505D2F00054F03 /* Sources */,
 				E693557229602420004F7FD8 /* Assets.xcassets */,
-				E693557429602420004F7FD8 /* LaunchScreen.storyboard */,
 				E693557729602420004F7FD8 /* Info.plist */,
+				E693557429602420004F7FD8 /* LaunchScreen.storyboard */,
+				E693556F2960241F004F7FD8 /* Main.storyboard */,
 			);
 			path = VFLRunner;
 			sourceTree = "<group>";
@@ -100,6 +93,21 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6C911FB2A505D2F00054F03 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E69355692960241F004F7FD8 /* AppDelegate.swift */,
+				E693556B2960241F004F7FD8 /* SceneDelegate.swift */,
+				E693558129602A88004F7FD8 /* UIKit+Misc.swift */,
+				E693559C2960646B004F7FD8 /* VFLComplexViewController.swift */,
+				E693558929603D79004F7FD8 /* VFLExample.swift */,
+				E693559A2960616C004F7FD8 /* VFLExamplesViewController.swift */,
+				E693558729603946004F7FD8 /* VFLExampleViewController.swift */,
+				E693556D2960241F004F7FD8 /* ViewController.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
