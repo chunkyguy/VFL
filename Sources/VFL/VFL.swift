@@ -12,9 +12,15 @@ public typealias VFLView = UIView
 
 public class VFL {
   private var views: [String: VFLView] = [:]
-  private var constraints: [NSLayoutConstraint] = []
   private var parentVw: VFLView?
-  
+
+  private var constraints: [NSLayoutConstraint] = [] {
+    didSet {
+      NSLayoutConstraint.deactivate(oldValue)
+      NSLayoutConstraint.activate(constraints)
+    }
+  }
+
   public init(_ view: VFLView? = nil) {
     parentVw = view
   }
@@ -35,114 +41,75 @@ public class VFL {
   }
   
   @discardableResult
-  public func add(subviews: [VFLView], names: [String]) -> VFL {
-    (0..<subviews.count).forEach { idx in
-      add(subview: subviews[idx], name: names[idx])
+  public func appendConstraints(
+    options: NSLayoutConstraint.FormatOptions = [],
+    metrics: [String: CGFloat]? = nil,
+    formats: [String]
+  ) -> VFL {
+    return updateConstraints(
+      overwrite: false,
+      options: options,
+      metrics: metrics,
+      formats: formats
+    )
+  }
+  
+  @discardableResult
+  public func replaceConstraints(
+    options: NSLayoutConstraint.FormatOptions = [],
+    metrics: [String: CGFloat]? = nil,
+    formats: [String]
+  ) -> VFL {
+    return updateConstraints(
+      overwrite: true,
+      options: options,
+      metrics: metrics,
+      formats: formats
+    )
+  }
+  
+  @discardableResult
+  public func updateConstraints(
+    overwrite: Bool,
+    options: NSLayoutConstraint.FormatOptions = [],
+    metrics: [String: CGFloat]? = nil,
+    formats: [String]
+  ) -> VFL {
+    update(
+      constraints: _constraints(
+        options: options,
+        metrics: metrics,
+        formats: formats
+      ),
+      overwrite: overwrite
+    )
+    return self
+  }
+  
+  @discardableResult
+  func update(constraints: [NSLayoutConstraint], overwrite: Bool) -> VFL {
+    if overwrite {
+      self.constraints = constraints
+    } else {
+      self.constraints.append(contentsOf: constraints)
     }
-    return self
-  }
-  
-  @discardableResult
-  public func appendConstraints(
-    options: NSLayoutConstraint.FormatOptions = [],
-    metrics: [String: CGFloat]? = nil,
-    formats: [String]
-  ) -> VFL {
-    appendConstraints(
-      getConstraints(
-        options: options,
-        metrics: metrics,
-        formats: formats
-      )
-    )
-    return self
-  }
-  
-  @discardableResult
-  public func replaceConstraints(
-    options: NSLayoutConstraint.FormatOptions = [],
-    metrics: [String: CGFloat]? = nil,
-    formats: [String]
-  ) -> VFL {
-    replaceConstraints(
-      getConstraints(
-        options: options,
-        metrics: metrics,
-        formats: formats
-      )
-    )
-    return self
-  }
-  
-  @discardableResult
-  public func appendConstraints(
-    attributes: [NSLayoutConstraint.Attribute: CGFloat],
-    subviews: [VFLView]
-  ) -> VFL {
-    appendConstraints(getConstraints(
-      attributes: attributes,
-      subviews: subviews
-    ))
-    return self
-  }
-  
-  @discardableResult
-  public func replaceConstraints(
-    attributes: [NSLayoutConstraint.Attribute: CGFloat],
-    subviews: [VFLView]
-  ) -> VFL {
-    replaceConstraints(getConstraints(
-      attributes: attributes,
-      subviews: subviews
-    ))
     return self
   }
 }
 
 extension VFL {
-  public func getConstraints(
-    attributes: [NSLayoutConstraint.Attribute: CGFloat],
-    subviews: [VFLView]
-  ) -> [NSLayoutConstraint] {
-    guard let item = parentVw else { return [] }
-    return attributes.flatMap { (attr, constant) in
-      subviews.map { subview in
-        NSLayoutConstraint(
-          item: item,
-          attribute: attr,
-          relatedBy: .equal,
-          toItem: subview,
-          attribute: attr,
-          multiplier: 1,
-          constant: constant
-        )
-      }
-    }
-  }
-  
-  private func getConstraints(
+  private func _constraints(
     options: NSLayoutConstraint.FormatOptions = [],
     metrics: [String: CGFloat]? = nil,
     formats: [String]
   ) -> [NSLayoutConstraint] {
-    return formats.flatMap { desc in
+    return formats.flatMap {
       NSLayoutConstraint.constraints(
-        withVisualFormat: desc,
+        withVisualFormat: $0,
         options: options,
         metrics: metrics,
         views: views
       )
     }
-  }
-  
-  private func appendConstraints(_ constraints: [NSLayoutConstraint]) {
-    NSLayoutConstraint.activate(constraints)
-    self.constraints.append(contentsOf: constraints)
-  }
-  
-  private func replaceConstraints(_ constraints: [NSLayoutConstraint]) {
-    NSLayoutConstraint.deactivate(self.constraints)
-    NSLayoutConstraint.activate(constraints)
-    self.constraints = constraints
   }
 }

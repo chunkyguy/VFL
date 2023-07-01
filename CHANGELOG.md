@@ -1,3 +1,8 @@
+### Upcoming
+- Remove `add(subviews: [VFLView], names: [String])`
+- Add `updateConstraints()`
+- Simplify examples
+
 ### 1.0.0
 - First draft
 - Add `add(subview: name:)` variants to subviews

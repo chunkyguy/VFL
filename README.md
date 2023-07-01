@@ -9,7 +9,7 @@ Example usage:
 ```swift
     VFL(self)
       .add(subview: tableVw, name: "tableVw")
-      .appendConstraints(
+      .updateConstraints(
         metrics: view.safeAreaInsets.metrics,
         formats: [
           "V:|-(top)-[tableVw]-(bottom)-|",

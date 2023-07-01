@@ -16,16 +16,11 @@ extension UIColor {
   }
 }
 
-extension UIView {
-  static func create(color: UIColor = .random) -> UIView {
-    let vw = UIView(frame: .zero)
-    vw.backgroundColor = color
-    return vw
-  }
-}
-
 extension UIEdgeInsets {
   var metrics: [String: CGFloat] {
-    return [ "top": self.top, "bottom": self.bottom, "left": self.left, "right": self.right]
+    return [
+      "top": self.top, "bottom": self.bottom,
+      "left": self.left, "right": self.right
+    ]
   }
 }

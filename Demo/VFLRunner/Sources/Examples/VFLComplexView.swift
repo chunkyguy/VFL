@@ -1,27 +1,48 @@
 //
-//  VFLComplexViewController.swift
+//  VFLComplexView.swift
 //  VFLRunner
 //
-//  Created by Sidharth Juyal on 31/12/2022.
+//  Created by Sidharth Juyal on 01/07/2023.
 //
 
 import UIKit
 import VFL
 
-extension VFLComplexViewController {
+class VFLComplexView: VFLExampleView {
+  override func setUp() {
+    super.setUp()
+    VFL(self)
+      .add(subview: ContentView(frame: .zero), name: "contentVw")
+      .appendConstraints(
+        metrics: [
+          "top": 32, "bottom": 32,
+          "left": 16, "right": 16
+        ],
+        formats: [
+          "V:|-(top)-[contentVw]-(bottom)-|",
+          "H:|-(left)-[contentVw]-(right)-|"
+        ])
+    
+    backgroundColor = .white
+  }
+}
+
+extension VFLComplexView {
   class ContentView: UIView {
-    private var ctx = VFL()
+    private var vfl = VFL()
     
     override init(frame: CGRect) {
       super.init(frame: frame)
       let topVw = UIImageView(image: UIImage(named: "square"))
       let leftVw = UIImageView(image: UIImage(named: "square"))
       let rightVw = UIImageView(image: UIImage(named: "square"))
-      let borderVw = UIView.create(color: .green)
-      ctx.setParent(self).add(
-        subviews: [borderVw, topVw, leftVw, rightVw],
-        names: ["bVw", "tVw", "lVw", "rVw"]
-      )
+      let borderVw = VFLColorView(color: .green)
+      vfl
+        .setParent(self)
+        .add(subview: borderVw, name: "bVw")
+        .add(subview: topVw, name: "tVw")
+        .add(subview: leftVw, name: "lVw")
+        .add(subview: rightVw, name: "rVw")
     }
     
     override func layoutSubviews() {
@@ -34,7 +55,7 @@ extension VFLComplexViewController {
     }
     
     private func layoutSubviewPortrait() {
-      ctx.replaceConstraints(
+      vfl.replaceConstraints(
         metrics: [
           "w": bounds.width,
           "hw": bounds.width / 2
@@ -51,7 +72,7 @@ extension VFLComplexViewController {
     }
     
     private func layoutSubviewLandscape() {
-      ctx.replaceConstraints(
+      vfl.replaceConstraints(
         metrics: [
           "w": bounds.height,
           "hw": bounds.height / 2.0,
@@ -67,33 +88,8 @@ extension VFLComplexViewController {
       )
     }
     
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-  }
-}
-
-class VFLComplexViewController: UIViewController {
-  static func create() -> VFLComplexViewController {
-    return VFLComplexViewController(nibName: nil, bundle: nil)
-  }
-  
-  private var ctx = VFL()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    title = "Complex Example"
-    let vw = ContentView(frame: .zero)
-    ctx.setParent(view).add(subview: vw, name: "vw")
-    view.backgroundColor = .white
-  }
-  
-  override func viewSafeAreaInsetsDidChange() {
-    super.viewSafeAreaInsetsDidChange()
-    ctx.replaceConstraints(
-      metrics: view.safeAreaInsets.metrics,
-      formats: [
-        "V:|-(top)-[vw]-(bottom)-|",
-        "H:|-(left)-[vw]-(right)-|"
-      ]
-    )
+    required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+    }
   }
 }
