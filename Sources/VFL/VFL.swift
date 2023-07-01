@@ -13,24 +13,24 @@ public typealias VFLView = UIView
 public class VFL {
   private var views: [String: VFLView] = [:]
   private var parentVw: VFLView?
-
+  
   private var constraints: [NSLayoutConstraint] = [] {
     didSet {
       NSLayoutConstraint.deactivate(oldValue)
       NSLayoutConstraint.activate(constraints)
     }
   }
-
+  
   public init(_ view: VFLView? = nil) {
     parentVw = view
   }
-  
+
   @discardableResult
   public func setParent(_ view: VFLView) -> VFL {
     parentVw = view
     return self
   }
-  
+
   @discardableResult
   public func add(subview: VFLView, name: String) -> VFL {
     assert(parentVw != nil)
@@ -55,6 +55,11 @@ public class VFL {
   }
   
   @discardableResult
+  public func appendConstraints(_ constraints: [NSLayoutConstraint]) -> VFL {
+    return update(constraints: constraints, overwrite: false)
+  }
+  
+  @discardableResult
   public func replaceConstraints(
     options: NSLayoutConstraint.FormatOptions = [],
     metrics: [String: CGFloat]? = nil,
@@ -69,36 +74,13 @@ public class VFL {
   }
   
   @discardableResult
-  public func updateConstraints(
-    overwrite: Bool,
-    options: NSLayoutConstraint.FormatOptions = [],
-    metrics: [String: CGFloat]? = nil,
-    formats: [String]
-  ) -> VFL {
-    update(
-      constraints: _constraints(
-        options: options,
-        metrics: metrics,
-        formats: formats
-      ),
-      overwrite: overwrite
-    )
-    return self
-  }
-  
-  @discardableResult
-  func update(constraints: [NSLayoutConstraint], overwrite: Bool) -> VFL {
-    if overwrite {
-      self.constraints = constraints
-    } else {
-      self.constraints.append(contentsOf: constraints)
-    }
-    return self
+  public func replaceConstraints(_ constraints: [NSLayoutConstraint]) -> VFL {
+    return update(constraints: constraints, overwrite: true)
   }
 }
 
 extension VFL {
-  private func _constraints(
+  private func createConstraints(
     options: NSLayoutConstraint.FormatOptions = [],
     metrics: [String: CGFloat]? = nil,
     formats: [String]
@@ -112,4 +94,33 @@ extension VFL {
       )
     }
   }
+  
+  @discardableResult
+  private func updateConstraints(
+    overwrite: Bool,
+    options: NSLayoutConstraint.FormatOptions = [],
+    metrics: [String: CGFloat]? = nil,
+    formats: [String]
+  ) -> VFL {
+    update(
+      constraints: createConstraints(
+        options: options,
+        metrics: metrics,
+        formats: formats
+      ),
+      overwrite: overwrite
+    )
+    return self
+  }
+  
+  @discardableResult
+  private func update(constraints: [NSLayoutConstraint], overwrite: Bool) -> VFL {
+    if overwrite {
+      self.constraints = constraints
+    } else {
+      self.constraints.append(contentsOf: constraints)
+    }
+    return self
+  }
+
 }

@@ -1,6 +1,7 @@
 ### Upcoming
 - Remove `add(subviews: [VFLView], names: [String])`
 - Add `updateConstraints()`
+- Add ` appendConstraints([NSLayoutConstraint])`
 - Simplify examples
 
 ### 1.0.0

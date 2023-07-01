@@ -8,29 +8,6 @@
 import UIKit
 import VFL
 
-enum VFLExamples: String, CaseIterable {
-  case full = "Screen Full Layout"
-  case hsplit = "Horizontal Equal Split"
-  case vsplit = "Vertical Equal Split"
-  case fixed = "Fixed Size View"
-  case complex = "Complex Example"
-  
-  var view: VFLExampleView {
-    switch self {
-    case .full:
-      return VFLFullView(title: rawValue)
-    case .hsplit:
-      return VFLHSplitView(title: rawValue)
-    case .vsplit:
-      return VFLVSplitView(title: rawValue)
-    case .fixed:
-      return VFLFixView(title: rawValue)
-    case .complex:
-      return VFLComplexView(title: rawValue)
-    }
-  }
-}
-
 class ViewController: UIViewController {
   static let cellId = "cell-id"
   
