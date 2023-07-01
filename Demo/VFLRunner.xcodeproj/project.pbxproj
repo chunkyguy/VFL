@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E60098992A506FD70081D999 /* VFLComplexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60098982A506FD70081D999 /* VFLComplexView.swift */; };
+		E600989B2A506FF40081D999 /* VFLFixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600989A2A506FF40081D999 /* VFLFixView.swift */; };
+		E600989D2A50700A0081D999 /* VFLVSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600989C2A50700A0081D999 /* VFLVSplitView.swift */; };
+		E600989F2A50701F0081D999 /* VFLHSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600989E2A50701F0081D999 /* VFLHSplitView.swift */; };
+		E60098A12A5070360081D999 /* VFLFullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60098A02A5070360081D999 /* VFLFullView.swift */; };
+		E60098A32A50708A0081D999 /* VFLColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60098A22A50708A0081D999 /* VFLColorView.swift */; };
+		E60098A52A5077A10081D999 /* VFLCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60098A42A5077A10081D999 /* VFLCenterView.swift */; };
+		E60098A72A50799F0081D999 /* VFLExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60098A62A50799F0081D999 /* VFLExamples.swift */; };
 		E693556A2960241F004F7FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69355692960241F004F7FD8 /* AppDelegate.swift */; };
 		E693556C2960241F004F7FD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693556B2960241F004F7FD8 /* SceneDelegate.swift */; };
 		E693556E2960241F004F7FD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693556D2960241F004F7FD8 /* ViewController.swift */; };
@@ -14,14 +22,20 @@
 		E693557329602420004F7FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E693557229602420004F7FD8 /* Assets.xcassets */; };
 		E693557629602420004F7FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E693557429602420004F7FD8 /* LaunchScreen.storyboard */; };
 		E693558229602A88004F7FD8 /* UIKit+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558129602A88004F7FD8 /* UIKit+Misc.swift */; };
-		E693558829603946004F7FD8 /* VFLExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558729603946004F7FD8 /* VFLExampleViewController.swift */; };
-		E693558A29603D79004F7FD8 /* VFLExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558929603D79004F7FD8 /* VFLExample.swift */; };
-		E693559B2960616C004F7FD8 /* VFLExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559A2960616C004F7FD8 /* VFLExamplesViewController.swift */; };
-		E693559D2960646B004F7FD8 /* VFLComplexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693559C2960646B004F7FD8 /* VFLComplexViewController.swift */; };
+		E693558829603946004F7FD8 /* VFLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558729603946004F7FD8 /* VFLViewController.swift */; };
+		E693558A29603D79004F7FD8 /* VFLExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558929603D79004F7FD8 /* VFLExampleView.swift */; };
 		E69355CC29676C38004F7FD8 /* VFL in Frameworks */ = {isa = PBXBuildFile; productRef = E69355CB29676C38004F7FD8 /* VFL */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E60098982A506FD70081D999 /* VFLComplexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLComplexView.swift; sourceTree = "<group>"; };
+		E600989A2A506FF40081D999 /* VFLFixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLFixView.swift; sourceTree = "<group>"; };
+		E600989C2A50700A0081D999 /* VFLVSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLVSplitView.swift; sourceTree = "<group>"; };
+		E600989E2A50701F0081D999 /* VFLHSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLHSplitView.swift; sourceTree = "<group>"; };
+		E60098A02A5070360081D999 /* VFLFullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLFullView.swift; sourceTree = "<group>"; };
+		E60098A22A50708A0081D999 /* VFLColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLColorView.swift; sourceTree = "<group>"; };
+		E60098A42A5077A10081D999 /* VFLCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLCenterView.swift; sourceTree = "<group>"; };
+		E60098A62A50799F0081D999 /* VFLExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExamples.swift; sourceTree = "<group>"; };
 		E69355662960241F004F7FD8 /* VFLRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VFLRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E69355692960241F004F7FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E693556B2960241F004F7FD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,10 +45,8 @@
 		E693557529602420004F7FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E693557729602420004F7FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E693558129602A88004F7FD8 /* UIKit+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Misc.swift"; sourceTree = "<group>"; };
-		E693558729603946004F7FD8 /* VFLExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExampleViewController.swift; sourceTree = "<group>"; };
-		E693558929603D79004F7FD8 /* VFLExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExample.swift; sourceTree = "<group>"; };
-		E693559A2960616C004F7FD8 /* VFLExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExamplesViewController.swift; sourceTree = "<group>"; };
-		E693559C2960646B004F7FD8 /* VFLComplexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLComplexViewController.swift; sourceTree = "<group>"; };
+		E693558729603946004F7FD8 /* VFLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLViewController.swift; sourceTree = "<group>"; };
+		E693558929603D79004F7FD8 /* VFLExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExampleView.swift; sourceTree = "<group>"; };
 		E69355CA29676C2B004F7FD8 /* VFL */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VFL; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +62,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E60098972A506FB50081D999 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				E60098982A506FD70081D999 /* VFLComplexView.swift */,
+				E600989A2A506FF40081D999 /* VFLFixView.swift */,
+				E60098A02A5070360081D999 /* VFLFullView.swift */,
+				E600989E2A50701F0081D999 /* VFLHSplitView.swift */,
+				E600989C2A50700A0081D999 /* VFLVSplitView.swift */,
+				E60098A42A5077A10081D999 /* VFLCenterView.swift */,
+			);
+			path = Examples;
+			sourceTree = "<group>";
+		};
 		E693555D2960241F004F7FD8 = {
 			isa = PBXGroup;
 			children = (
@@ -99,12 +124,13 @@
 			isa = PBXGroup;
 			children = (
 				E69355692960241F004F7FD8 /* AppDelegate.swift */,
+				E60098972A506FB50081D999 /* Examples */,
 				E693556B2960241F004F7FD8 /* SceneDelegate.swift */,
 				E693558129602A88004F7FD8 /* UIKit+Misc.swift */,
-				E693559C2960646B004F7FD8 /* VFLComplexViewController.swift */,
-				E693558929603D79004F7FD8 /* VFLExample.swift */,
-				E693559A2960616C004F7FD8 /* VFLExamplesViewController.swift */,
-				E693558729603946004F7FD8 /* VFLExampleViewController.swift */,
+				E60098A22A50708A0081D999 /* VFLColorView.swift */,
+				E60098A62A50799F0081D999 /* VFLExamples.swift */,
+				E693558929603D79004F7FD8 /* VFLExampleView.swift */,
+				E693558729603946004F7FD8 /* VFLViewController.swift */,
 				E693556D2960241F004F7FD8 /* ViewController.swift */,
 			);
 			path = Sources;
@@ -184,14 +210,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E693559B2960616C004F7FD8 /* VFLExamplesViewController.swift in Sources */,
-				E693559D2960646B004F7FD8 /* VFLComplexViewController.swift in Sources */,
+				E600989D2A50700A0081D999 /* VFLVSplitView.swift in Sources */,
 				E693556E2960241F004F7FD8 /* ViewController.swift in Sources */,
 				E693558229602A88004F7FD8 /* UIKit+Misc.swift in Sources */,
+				E600989F2A50701F0081D999 /* VFLHSplitView.swift in Sources */,
 				E693556A2960241F004F7FD8 /* AppDelegate.swift in Sources */,
+				E60098992A506FD70081D999 /* VFLComplexView.swift in Sources */,
 				E693556C2960241F004F7FD8 /* SceneDelegate.swift in Sources */,
-				E693558A29603D79004F7FD8 /* VFLExample.swift in Sources */,
-				E693558829603946004F7FD8 /* VFLExampleViewController.swift in Sources */,
+				E600989B2A506FF40081D999 /* VFLFixView.swift in Sources */,
+				E60098A52A5077A10081D999 /* VFLCenterView.swift in Sources */,
+				E693558A29603D79004F7FD8 /* VFLExampleView.swift in Sources */,
+				E60098A12A5070360081D999 /* VFLFullView.swift in Sources */,
+				E60098A72A50799F0081D999 /* VFLExamples.swift in Sources */,
+				E693558829603946004F7FD8 /* VFLViewController.swift in Sources */,
+				E60098A32A50708A0081D999 /* VFLColorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
