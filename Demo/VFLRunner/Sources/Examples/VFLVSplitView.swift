@@ -8,6 +8,7 @@
 import UIKit
 import VFL
 
+// Add two subviews of equal height and same width as parent
 class VFLVSplitView: VFLExampleView {
   override func setUp() {
     super.setUp()

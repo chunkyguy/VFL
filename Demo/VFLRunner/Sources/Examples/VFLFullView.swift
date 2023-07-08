@@ -8,6 +8,7 @@
 import UIKit
 import VFL
 
+// Pin subview to all edges
 class VFLFullView: VFLExampleView {
   override func setUp() {
     super.setUp()

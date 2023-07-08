@@ -8,6 +8,7 @@
 import UIKit
 import VFL
 
+// Add a subview of size 320x480 and pinned to the center of parent
 class VFLCenterView: VFLExampleView {
   override func setUp() {
     super.setUp()
