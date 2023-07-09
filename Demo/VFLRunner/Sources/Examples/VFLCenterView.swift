@@ -18,7 +18,7 @@ class VFLCenterView: VFLExampleView {
       .add(subview: view, name: "view")
       .appendConstraints(formats: [
         "H:[view(320)]",
-        "V:[view(480)]",
+        "V:[view(480)]"
       ])
       .appendConstraints([
         NSLayoutConstraint(

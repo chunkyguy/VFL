@@ -3,6 +3,7 @@
 - Add `updateConstraints()`
 - Add ` appendConstraints([NSLayoutConstraint])`
 - Simplify examples
+- Add Objective-C support
 
 ### 1.0.0
 - First draft
