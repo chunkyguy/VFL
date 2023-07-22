@@ -14,8 +14,6 @@ class VFLFullView: VFLExampleView {
     super.setUp()
     VFL(self)
       .add(subview: VFLColorView(), name: "view")
-      .appendConstraints(formats: [
-        "V:|[view]|", "H:|[view]|"
-      ])
+      .appendConstraints(formats: ["H:|[view]|", "V:|[view]|"])
   }
 }

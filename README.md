@@ -7,14 +7,9 @@ Simple wrapper around Apple's ascii based constraints.
 Example usage:
 
 ```swift
-    VFL(self)
-      .add(subview: tableVw, name: "tableVw")
-      .updateConstraints(
-        metrics: view.safeAreaInsets.metrics,
-        formats: [
-          "V:|-(top)-[tableVw]-(bottom)-|",
-          "H:|-(left)-[tableVw]-(right)-|"
-        ])
+VFL(self)
+  .add(subview: MyView(), name: "view")
+  .appendConstraints(formats: ["H:|[view(320)]|", "V:|[view(480)]|"])
 ```
 
 But unlike other wrappers, VFL is meant to be used as a supplement and not a replacement. So you can also add constraints created using system API.
