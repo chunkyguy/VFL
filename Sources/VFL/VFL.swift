@@ -11,12 +11,12 @@ public typealias VFLView = UIView
 #endif
 
 public class VFL {
-  private(set) var views: [String: VFLView] = [:]
-  private(set) var parentView: VFLView?
-  private(set) var options: NSLayoutConstraint.FormatOptions = []
-  private(set) var metrics: [String: CGFloat] = [:]
-  private(set) var constraints: [NSLayoutConstraint] = []
-  private(set) var formats:[String: [String]] = [:]
+  public private(set) var views: [String: VFLView] = [:]
+  public private(set) var parentView: VFLView?
+  public private(set) var options: NSLayoutConstraint.FormatOptions = []
+  public private(set) var metrics: [String: CGFloat] = [:]
+  public private(set) var constraints: [NSLayoutConstraint] = []
+  public private(set) var formats:[String: [String]] = [:]
   
   public init(_ view: VFLView? = nil) {
     parentView = view
@@ -134,6 +134,7 @@ extension VFL {
     return self
   }
   
+  @discardableResult
   public func appendConstraints(_ constraints: [NSLayoutConstraint]) -> VFL {
     applyConstraints(constraints: constraints)
     return self

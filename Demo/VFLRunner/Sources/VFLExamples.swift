@@ -14,6 +14,7 @@ enum VFLExamples: String, CaseIterable {
   case fixed = "Fixed Size View"
   case center = "Center View"
   case complex = "Complex Example"
+  case subalign = "Align Subviews"
   
   var view: VFLExampleView {
     switch self {
@@ -29,6 +30,8 @@ enum VFLExamples: String, CaseIterable {
       return VFLCenterView(title: rawValue)
     case .complex:
       return VFLComplexView(title: rawValue)
+    case .subalign:
+      return VFLSubAlignView(title: rawValue)
     }
   }
 }

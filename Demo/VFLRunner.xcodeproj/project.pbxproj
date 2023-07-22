@@ -38,6 +38,8 @@
 		E693558829603946004F7FD8 /* VFLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558729603946004F7FD8 /* VFLViewController.swift */; };
 		E693558A29603D79004F7FD8 /* VFLExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693558929603D79004F7FD8 /* VFLExampleView.swift */; };
 		E69355CC29676C38004F7FD8 /* VFL in Frameworks */ = {isa = PBXBuildFile; productRef = E69355CB29676C38004F7FD8 /* VFL */; };
+		E6E8F7422A6BF61C00E56718 /* VFLSubAlignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8F7412A6BF61C00E56718 /* VFLSubAlignView.swift */; };
+		E6E8F7442A6C007500E56718 /* WLLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8F7432A6C007500E56718 /* WLLazyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		E693558729603946004F7FD8 /* VFLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLViewController.swift; sourceTree = "<group>"; };
 		E693558929603D79004F7FD8 /* VFLExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLExampleView.swift; sourceTree = "<group>"; };
 		E69355CA29676C2B004F7FD8 /* VFL */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VFL; path = ..; sourceTree = "<group>"; };
+		E6E8F7412A6BF61C00E56718 /* VFLSubAlignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLSubAlignView.swift; sourceTree = "<group>"; };
+		E6E8F7432A6C007500E56718 /* WLLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WLLazyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				E600989E2A50701F0081D999 /* VFLHSplitView.swift */,
 				E600989C2A50700A0081D999 /* VFLVSplitView.swift */,
 				E60098A42A5077A10081D999 /* VFLCenterView.swift */,
+				E6E8F7412A6BF61C00E56718 /* VFLSubAlignView.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				E69355692960241F004F7FD8 /* AppDelegate.swift */,
 				E60098972A506FB50081D999 /* Examples */,
 				E693556B2960241F004F7FD8 /* SceneDelegate.swift */,
+				E6E8F7432A6C007500E56718 /* WLLazyView.swift */,
 				E693558129602A88004F7FD8 /* UIKit+Misc.swift */,
 				E60098A22A50708A0081D999 /* VFLColorView.swift */,
 				E60098A62A50799F0081D999 /* VFLExamples.swift */,
@@ -350,6 +356,8 @@
 				E693556C2960241F004F7FD8 /* SceneDelegate.swift in Sources */,
 				E600989B2A506FF40081D999 /* VFLFixView.swift in Sources */,
 				E60098A52A5077A10081D999 /* VFLCenterView.swift in Sources */,
+				E6E8F7442A6C007500E56718 /* WLLazyView.swift in Sources */,
+				E6E8F7422A6BF61C00E56718 /* VFLSubAlignView.swift in Sources */,
 				E693558A29603D79004F7FD8 /* VFLExampleView.swift in Sources */,
 				E60098A12A5070360081D999 /* VFLFullView.swift in Sources */,
 				E60098A72A50799F0081D999 /* VFLExamples.swift in Sources */,
