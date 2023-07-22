@@ -1,4 +1,7 @@
 ### Upcoming
+- None
+
+### 3.0.0
 - Add Objective-C support
 - Remove `replaceConstraints()`
 - Add `removeAllConstraints()`
