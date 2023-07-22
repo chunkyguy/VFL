@@ -64,7 +64,7 @@ extension VFLComplexView {
             ],
             name: "landscape"
           )
-          .applyConstraintsNamed(name: "portrait")
+          .applyConstraints(name: "portrait")
     }
     
     override func layoutSubviews() {
@@ -80,14 +80,14 @@ extension VFLComplexView {
       vfl
         .removeAll()
         .addMetrics(["w": bounds.width, "hw": bounds.width * 0.5])
-        .applyConstraintsNamed(name: "portrait")
+        .applyConstraints(name: "portrait")
     }
     
     private func layoutSubviewLandscape() {
       vfl
         .removeAll()
         .addMetrics(["w": bounds.height, "hw": bounds.height * 0.5])
-        .applyConstraintsNamed(name: "landscape")
+        .applyConstraints(name: "landscape")
     }
     
     required init?(coder: NSCoder) {
