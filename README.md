@@ -42,4 +42,5 @@ VFL(self)
 ### References
 
 1. [Apple's Visual Format Language](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/VisualFormatLanguage.html)
-
+1. [Introducing VFL](https://whackylabs.com/swift/uikit/layout/2023/07/01/introducing-vfl/)
+1. [Autolayout and aligning subviews](https://whackylabs.com/swift/uikit/layout/vfl/2023/07/22/autolayout-align/)
