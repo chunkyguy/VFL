@@ -70,15 +70,10 @@ private extension VFLSubAlignView {
     }
     
     func setAlignment(alignment: NSLayoutConstraint.FormatOptions) {
-      
-      let constraintsName: String
-      let vLayouts: NSLayoutConstraint.FormatOptions = [.alignAllLeft, .alignAllCenterX, .alignAllRight]
-      if vLayouts.contains(alignment) {
-        constraintsName = "v_layout"
-      } else {
-        constraintsName = "h_layout"
-      }
-      
+      let vLayouts: NSLayoutConstraint.FormatOptions = [
+        .alignAllLeft, .alignAllCenterX, .alignAllRight
+      ]
+      let constraintsName = vLayouts.contains(alignment) ? "v_layout" : "h_layout"
       vfl
         .removeAllConstraints()
         .removeAllOptions()
