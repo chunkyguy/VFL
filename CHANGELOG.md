@@ -2,6 +2,8 @@
 - Add Objective-C support
 - Remove `replaceConstraints()`
 - Add `removeAllConstraints()`
+- Add ability to independently add/remove metrics and options
+- Add ability to store/apply constraints with name
 
 ### 2.0.0
 - Remove `add(subviews: [VFLView], names: [String])`

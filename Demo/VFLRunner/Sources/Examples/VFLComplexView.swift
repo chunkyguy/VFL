@@ -43,6 +43,28 @@ extension VFLComplexView {
           .add(subview: borderVw, name: "borderVw")
           .add(subview: firstThumbVw, name: "firstThumbVw")
           .add(subview: secondThumbVw, name: "secondThumbVw")
+          .addMetrics(["w": 0, "hw": 0])
+          .storeConstraints(
+            formats: [
+              "H:|[headerVw]|",
+              "H:|[borderVw]|",
+              "H:|-[firstThumbVw(==secondThumbVw)]-[secondThumbVw]-|",
+              "V:|[headerVw(w)][borderVw(40)]",
+              "V:[firstThumbVw(hw)]|", "V:[secondThumbVw(hw)]|"
+            ],
+            name: "portrait"
+          )
+          .storeConstraints(
+            formats: [
+              "H:|[headerVw(w)][borderVw(40)]",
+              "H:[firstThumbVw(hw)]|", "H:[secondThumbVw(hw)]|",
+              "V:|[headerVw]|",
+              "V:|[borderVw]|",
+              "V:|-[firstThumbVw(==secondThumbVw)]-[secondThumbVw]-|",
+            ],
+            name: "landscape"
+          )
+          .applyConstraintsNamed(name: "portrait")
     }
     
     override func layoutSubviews() {
@@ -55,35 +77,17 @@ extension VFLComplexView {
     }
     
     private func layoutSubviewPortrait() {
-      vfl.replaceConstraints(
-          metrics: [
-              "w": bounds.width,
-              "hw": bounds.width / 2
-            ],
-          formats: [
-              "H:|[headerVw]|",
-              "H:|[borderVw]|",
-              "H:|-[firstThumbVw(==secondThumbVw)]-[secondThumbVw]-|",
-              "V:|[headerVw(w)][borderVw(40)]",
-              "V:[firstThumbVw(hw)]|", "V:[secondThumbVw(hw)]|"
-            ]
-          )
+      vfl
+        .removeAll()
+        .addMetrics(["w": bounds.width, "hw": bounds.width * 0.5])
+        .applyConstraintsNamed(name: "portrait")
     }
     
     private func layoutSubviewLandscape() {
-      vfl.replaceConstraints(
-          metrics: [
-            "w": bounds.height,
-            "hw": bounds.height / 2.0,
-          ],
-          formats: [
-            "H:|[headerVw(w)][borderVw(40)]",
-            "H:[firstThumbVw(hw)]|", "H:[secondThumbVw(hw)]|",
-            "V:|[headerVw]|",
-            "V:|[borderVw]|",
-            "V:|-[firstThumbVw(==secondThumbVw)]-[secondThumbVw]-|",
-          ]
-        )
+      vfl
+        .removeAll()
+        .addMetrics(["w": bounds.height, "hw": bounds.height * 0.5])
+        .applyConstraintsNamed(name: "landscape")
     }
     
     required init?(coder: NSCoder) {
