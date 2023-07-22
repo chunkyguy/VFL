@@ -1,11 +1,13 @@
 ### Upcoming
+- Add Objective-C support
+- Remove `replaceConstraints()`
+- Add `removeAllConstraints()`
+
+### 2.0.0
 - Remove `add(subviews: [VFLView], names: [String])`
 - Add `updateConstraints()`
 - Add ` appendConstraints([NSLayoutConstraint])`
 - Simplify examples
-- Add Objective-C support
-- Remove `replaceConstraints()`
-- Add `removeAllConstraints()`
 
 ### 1.0.0
 - First draft
