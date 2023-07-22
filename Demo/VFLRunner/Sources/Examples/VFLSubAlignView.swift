@@ -79,6 +79,10 @@ private extension VFLSubAlignView {
         .removeAllOptions()
         .addOptions(alignment)
         .applyConstraints(name: constraintsName)
+      
+      UIView.animate(withDuration: 0.2) {
+        self.vfl.parentView?.layoutIfNeeded()
+      }
     }
   }
   
