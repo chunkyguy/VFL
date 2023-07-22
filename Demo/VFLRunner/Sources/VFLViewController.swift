@@ -24,20 +24,26 @@ class VFLViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    vfl.add(subview: contentView, name: "contentVw")
+    vfl
+      .add(subview: contentView, name: "contentVw")
+      .addMetrics(view.safeAreaInsets.metrics)
+      .storeConstraints(
+        formats: [
+          "V:|-(top)-[contentVw]-(bottom)-|",
+          "H:|-(left)-[contentVw]-(right)-|"
+        ],
+        name: "constraints"
+      )
+      .applyConstraints(name: "constraints")
+    
     view.backgroundColor = .white
   }
   
   override func viewSafeAreaInsetsDidChange() {
     super.viewSafeAreaInsetsDidChange()
     vfl
-      .removeAllConstraints()
-      .appendConstraints(
-        metrics: view.safeAreaInsets.metrics,
-        formats: [
-          "V:|-(top)-[contentVw]-(bottom)-|",
-          "H:|-(left)-[contentVw]-(right)-|"
-        ]
-      )
+      .removeAll()
+      .addMetrics(view.safeAreaInsets.metrics)
+      .applyConstraints(name: "constraints")
   }
 }

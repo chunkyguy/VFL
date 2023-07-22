@@ -18,7 +18,18 @@ class ViewController: UIViewController {
     self.title = "VFL Demo"
     
     let tableVw = UITableView(frame: .zero, style: .plain)
-    vfl.add(subview: tableVw, name: "tableVw")
+    vfl
+      .add(subview: tableVw, name: "tableVw")
+      .addMetrics(view.safeAreaInsets.metrics)
+      .storeConstraints(
+        formats: [
+          "V:|-(top)-[tableVw]-(bottom)-|",
+          "H:|-(left)-[tableVw]-(right)-|"
+        ],
+        name: "constraints"
+      )
+      .applyConstraints(name: "constraints")
+
     tableVw.dataSource = self
     tableVw.delegate = self
     tableVw.register(UITableViewCell.self, forCellReuseIdentifier: Self.cellId)
@@ -27,13 +38,9 @@ class ViewController: UIViewController {
   override func viewSafeAreaInsetsDidChange() {
     super.viewSafeAreaInsetsDidChange()
     vfl
-      .removeAllConstraints()
-      .appendConstraints(
-        metrics: view.safeAreaInsets.metrics,
-        formats: [
-          "V:|-(top)-[tableVw]-(bottom)-|",
-          "H:|-(left)-[tableVw]-(right)-|"
-        ])
+      .removeAll()
+      .addMetrics(view.safeAreaInsets.metrics)
+      .applyConstraints(name: "constraints")
   }
 }
 

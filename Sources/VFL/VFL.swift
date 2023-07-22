@@ -75,7 +75,7 @@ public class VFL {
   }
   
   @discardableResult
-  public func applyConstraintsNamed(name: String) -> VFL {
+  public func applyConstraints(name: String) -> VFL {
     guard let formats = self.formats[name] else {
       assertionFailure("No cached format found with name \(name)")
       return self
