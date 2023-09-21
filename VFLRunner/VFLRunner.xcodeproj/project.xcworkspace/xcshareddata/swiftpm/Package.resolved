@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "wlkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/chunkyguy/WLKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1689b3ee5767e98f26ea8f93af4d7a884bca9fd5"
+      }
+    }
+  ],
+  "version" : 2
+}
