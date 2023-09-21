@@ -8,6 +8,7 @@
 import UIKit
 import WLKit
 
+// Many subviews that align themselves based on NSLayoutConstraint.FormatOptions
 class VFLSubAlignView: VFLExampleView {
   
   private var selectedVw: AlignView? {

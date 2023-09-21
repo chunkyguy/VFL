@@ -8,7 +8,7 @@
 import UIKit
 import WLKit
 
-// Add a subview of size 320x480 and pinned to the center of parent
+// Add a subview of fixed size and pinned to the center of parent
 class VFLCenterView: VFLExampleView {
   override func setUp() {
     super.setUp()
@@ -16,23 +16,12 @@ class VFLCenterView: VFLExampleView {
     let view = VFLColorView()
     VFL(self)
       .add(subview: view, name: "view")
-      .appendConstraints(formats: [
-        "H:[view(320)]",
-        "V:[view(480)]"
+      .applyConstraints(formats: [
+        "H:[view(200)]", "V:[view(200)]"
       ])
-      .appendConstraints([
-        NSLayoutConstraint(
-          item: view, attribute: .centerX,
-          relatedBy: .equal,
-          toItem: self, attribute: .centerX,
-          multiplier: 1, constant: 0
-        ),
-        NSLayoutConstraint(
-          item: view, attribute: .centerY,
-          relatedBy: .equal,
-          toItem: self, attribute: .centerY,
-          multiplier: 1, constant: 0
-        )
+      .applyConstraints(constraints: [
+        view.centerXAnchor.constraint(equalTo: centerXAnchor),
+        view.centerYAnchor.constraint(equalTo: centerYAnchor)
       ])
   }
 }

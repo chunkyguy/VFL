@@ -8,6 +8,7 @@
 import UIKit
 import WLKit
 
+// View with different layouts for portrait and landscape mode
 class VFLComplexView: VFLExampleView {
   override func setUp() {
     super.setUp()
@@ -28,6 +29,12 @@ class VFLComplexView: VFLExampleView {
 }
 
 extension VFLComplexView {
+  
+  enum ContentViewOrientation: String {
+    case portrait
+    case landscape
+  }
+  
   class ContentView: UIView {
     private let vfl = VFL()
     
@@ -52,7 +59,7 @@ extension VFLComplexView {
               "V:|[headerVw(w)][borderVw(40)]",
               "V:[firstThumbVw(hw)]|", "V:[secondThumbVw(hw)]|"
             ],
-            name: "portrait"
+            name: ContentViewOrientation.portrait.rawValue
           )
           .storeConstraints(
             formats: [
@@ -62,9 +69,9 @@ extension VFLComplexView {
               "V:|[borderVw]|",
               "V:|-[firstThumbVw(==secondThumbVw)]-[secondThumbVw]-|",
             ],
-            name: "landscape"
+            name: ContentViewOrientation.landscape.rawValue
           )
-          .applyConstraints(name: "portrait")
+          .applyConstraints(name: ContentViewOrientation.portrait.rawValue)
     }
     
     override func layoutSubviews() {
@@ -80,14 +87,14 @@ extension VFLComplexView {
       vfl
         .removeAll()
         .addMetrics(["w": bounds.width, "hw": bounds.width * 0.5])
-        .applyConstraints(name: "portrait")
+        .applyConstraints(name: ContentViewOrientation.portrait.rawValue)
     }
     
     private func layoutSubviewLandscape() {
       vfl
         .removeAll()
         .addMetrics(["w": bounds.height, "hw": bounds.height * 0.5])
-        .applyConstraints(name: "landscape")
+        .applyConstraints(name: ContentViewOrientation.landscape.rawValue)
     }
     
     required init?(coder: NSCoder) {
